@@ -33,7 +33,35 @@ body{
     width: 450px;
 }
 
+.pizzas{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
 .searchpizzas{
     display: flex;
     gap: 10px;
+}
+
+.searchpizzas button{
+    padding: 0px 2px;
+    cursor: pointer;
+}
+
+.renderpizzas{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background: white;
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    height: 340px;
+}
+
+.renderpizzas img{
+    width: 100%;
 }

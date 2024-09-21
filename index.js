@@ -45,3 +45,22 @@ const pizzas = [
     imagen: "./img/anana.png",
   },
 ];
+
+
+const renderpizza = document.querySelector(".renderpizzas")
+const createpizzatemplate = (product) => {
+  const {nombre, imagen, precio} = product;
+
+  return `
+            <h3>${nombre}</h3>
+            <img src="${imagen}" alt="">
+            <p>${precio}</p>
+    `;
+}
+
+const renderpizzas = (product) => {
+  const pizzatemplate = product.map(createpizzatemplate).join("");
+  return renderpizza.innerHTML = pizzatemplate;
+};
+
+renderpizzas(pizzas);
