@@ -47,9 +47,12 @@ const pizzas = [
 ];
 
 
-const renderpizza = document.querySelector(".renderpizzas")
-const createpizzatemplate = (product) => {
-  const {nombre, imagen, precio} = product;
+const buscaIdPizza = document.querySelector("form")
+const input = document.querySelector("input")
+const renderPizza = document.querySelector(".renderpizzas")
+
+const pizzaTemplate = (product) => {
+  const {nombre, imagen, precio} = pizzas;
 
   return `
             <h3>${nombre}</h3>
@@ -58,9 +61,25 @@ const createpizzatemplate = (product) => {
     `;
 }
 
-const renderpizzas = (product) => {
-  const pizzatemplate = product.map(createpizzatemplate).join("");
-  return renderpizza.innerHTML = pizzatemplate;
+
+
+
+
+
+const mostrarPizzas = (e, product) => {
+  e.preventDefault()
+  const value = input.value; 
+  
+  const pizza = pizzas.find(product => product.id === Number(value));
+
+  if(!pizza){
+    
+    renderPizza.innerHTML = `<h1 class="errorpizza"> Pizza no encontrada </h1>`
+  }
+
+  renderPizza.innerHTML = pizzaTemplate(product);
 };
 
-renderpizzas(pizzas);
+buscaIdPizza.addEventListener("submit", (e) => mostrarPizzas(e));
+
+
